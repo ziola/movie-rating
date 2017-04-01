@@ -1,0 +1,4 @@
+.card-reveal.active {
+    display: block;
+    transform: translateY(-100%);
+}

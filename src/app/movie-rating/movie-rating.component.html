@@ -1,0 +1,31 @@
+<p>Score: {{avgRating | number}}</p>
+<!-- That should be another component -->
+<div *ngFor="let rating of distribution; let i = index" class="rating">
+  <div>{{i+1}}</div>
+  <div class="progress">
+    <div class="determinate" [ngStyle]="{'width': getRatingPercentage(rating)}"></div>
+  </div>
+  <div>{{rating}}</div>
+</div>
+<div class="row">
+</div>
+<div class="row">
+</div>
+<!-- That should be another component -->
+<div class="col s12">
+  Rate it yourself!
+  <div class="row">
+    <form>
+      <ng-container *ngFor="let rating of availableRatings">
+        <input class="with-gap" name="rating_{{movie.id}}" type="radio" [attr.id]="'rating_' + rating + '_' + movie.id" [(ngModel)]="userRating"
+          value="{{rating}}" />
+        <label for="rating_{{rating}}_{{movie.id}}">{{rating}}</label>
+      </ng-container>
+    </form>
+  </div>
+  <div class="row">
+    <button (click)="onRateClicked(userRating)" class="btn waves-effect waves-light" type="submit" name="action">Rate
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
+</div>

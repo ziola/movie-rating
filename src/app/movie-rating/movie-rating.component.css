@@ -1,0 +1,7 @@
+.rating {
+  display: flex;
+}
+
+.progress {
+  margin: auto 5px;
+}

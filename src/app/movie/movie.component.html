@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-image">
+      <img [src]="movie.poster">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"
+        (click)="toggleRatings(true)"
+      >{{movie.title}}</span>
+      <p>Click title to view its ratings.</p>
+    </div>
+    <div class="card-reveal"
+      [class.active]="isRatingVisible"
+    >
+      <i class="card-title material-icons right activator" (click)="toggleRatings(false)">close</i>
+      <p class="card-title grey-text text-darken-4">{{movie.title}}</p>
+      <app-movie-rating [movie]="movie"></app-movie-rating>
+    </div>
+  </div>
